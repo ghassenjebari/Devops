@@ -17,4 +17,4 @@ RUN curl -v -o /eventsProject-${VERSION}.jar http://192.168.91.143:8081/reposito
 # Debugging: Check if the JAR exists after downloading
 RUN ls -lah /eventsProject-* || echo "🚨 ERROR: JAR FILE MISSING!"
 
-ENTRYPOINT ["java", "-jar", "/eventsProject-${VERSION}.jar"]
+ENTRYPOINT ["/bin/sh", "-c", "ls -lah /eventsProject-* && java -jar /eventsProject-${VERSION}.jar"]
